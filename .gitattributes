@@ -1,0 +1,4 @@
+# Keep LF everywhere so MANIFEST.sha256 matches on every platform.
+* text=auto eol=lf
+*.pdf binary
+*.npz binary
