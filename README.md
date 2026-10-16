@@ -33,8 +33,19 @@ that proof, no choice of geometry gets below **0.8749535**, so the published 7/8
   significance comes from the 7/8 theorem: it says the method behind that theorem is within
   5 · 10⁻⁵ of its own limit.
 - **What was audited.** The inequalities were checked against the paper's LaTeX source (pinned
-  below), not against the Lean formalization. If the formal proof follows a different route or
-  uses different constants, these results describe the paper's argument.
+  below). They were also compared with the Lean sources in `lean/OAI/NumberTheory/DirichletL/`
+  of the same repository snapshot, and the formal proof uses the same architecture and constants:
+  - `Parameters.lean` fixes the paper's geometry (b = 1/8, l_x = 17/48, ℓ = 1/6) and its length
+    conditions, with low exponent (17/48)/2 + (1/8)/12 = 3/16.
+  - `Detector/CentralExponent.lean` defines `sourceExponent`, which equals our high exponent E
+    exactly at that geometry (checked symbolically).
+  - `Hecke/DetectorRowCountOptimization.lean` uses the long-range cost max{1, (1+5r)/6}.
+  - `Endpoint.lean` has the balanced cutoff t = 1 + 7δ/(185/6 − 23δ), identical to the closed form
+    in `proof78.pdf`.
+  - The floor bin 51/100 with margin −7/1200 and the intermediate bound 76/75 − 2δ/3 also match.
+
+  The Lean proof, like the paper, works at the one fixed geometry. Varying the geometry is this
+  repository's own step.
 - **The conditional results** need the mean-square hypothesis MS(κ) for κ < 1, which nobody has
   proved. They become usable only if it is proved, and even then 167/192 is the most this
   method can give.
