@@ -22,6 +22,25 @@ that proof, no choice of geometry gets below **0.8749535**, so the published 7/8
 | Cubic probe | The fourth-moment induction closes only for character order k > 4 | Exponent-level argument |
 | Sextic family numerics | The mean square matches square-root cancellation for row ranges H < D, up to D = 320,000 | Numerical |
 
+## Status of the underlying results
+
+- **The 7/8 theorem.** OpenAI's repository reports that the 7/8 zero-free half-plane is
+  formalized in Lean, for ζ, every Dirichlet L-function and the finite-order Hecke L-functions
+  over ℚ(√−3) (see `lean/docs/003.md` in [github.com/openai/math](https://github.com/openai/math)).
+  This repository hasn't built or checked that Lean code.
+- **What the limit depends on.** The lower bound s₀ ≥ 0.8749535 is a statement about the
+  inequalities the paper's argument uses, so it holds whether or not that proof is correct. Its
+  significance comes from the 7/8 theorem: it says the method behind that theorem is within
+  5 · 10⁻⁵ of its own limit.
+- **What was audited.** The inequalities were checked against the paper's LaTeX source (pinned
+  below), not against the Lean formalization. If the formal proof follows a different route or
+  uses different constants, these results describe the paper's argument.
+- **The conditional results** need the mean-square hypothesis MS(κ) for κ < 1, which nobody has
+  proved. They become usable only if it is proved, and even then 167/192 is the most this
+  method can give.
+- **The 11/12 companion,** whose mean-square estimate the family note uses, isn't listed in that
+  formalization document.
+
 ## Papers
 
 | File | Content |
