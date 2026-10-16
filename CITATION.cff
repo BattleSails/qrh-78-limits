@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use these results, please cite them as below."
+title: "Limits of the 7/8 zero-free-region architecture: notes and code"
+authors:
+  - family-names: Niilola
+    given-names: Tommi
+date-released: 2026-10-16
+license: MIT
+references:
+  - type: report
+    title: "A four-inequality limit for the Part II geometry of the 7/8 zero-free region"
+    authors:
+      - family-names: Niilola
+        given-names: Tommi
+    year: 2026
+  - type: report
+    title: "A numerical look at the sextic family in the quasi-Riemann argument"
+    authors:
+      - family-names: Niilola
+        given-names: Tommi
+    year: 2026

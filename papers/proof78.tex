@@ -1,0 +1,277 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem*{remark}{Remark}
+\title{A four-inequality limit for the Part~II geometry\\ of the $7/8$ zero-free region}
+\author{Tommi Niilola}
+\date{October 16, 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Part~II of the September~30, 2026 quasi-Riemann paper (OAI) proves a zero-free region
+$\operatorname{Re}s>7/8$ for one fixed geometry $(b,l_x,\ell)=(1/8,17/48,1/6)$. We ask how far the
+same exponent inequalities could go for any geometry. Four of them, combined with exact rational
+multipliers, give $s_0\ge 4638705/5301659=0.8749535\ldots$, so the architecture has less than
+$4.7\cdot10^{-5}$ of room below $7/8$. Assume the mean-square hypotheses $\mathrm{MS}(\kappa)$ for all
+$\kappa\in[\kappa_0,1]$, with the uniformity of OAI's (17.87). Under them the same method gives exact lower bounds that match the numerical optima to about $10^{-5}$, and a
+$\kappa_0$-free bound $s_0\ge 167/192=7/8-1/192$. Both bounds survive dropping the condition
+$M+\ell\le1$ once its row-norm cost is accounted for. A smaller floor bin gains at most $1/320$. The statements concern this exponent
+architecture only. They are not barriers for other methods.
+\end{abstract}
+
+\section{The inequalities}
+Line numbers refer to \texttt{paper.tex} of OAI. Write $l_y=l_x+b$, $M=l_x+l_y$, $h=1-l_x+\ell$,
+$z_0=17/50$, and let $s_0$ be the target boundary ($\sigma_0$, $\beta_*$ in OAI). An independent reader
+derived each inequality below from the source before comparing it with our transcription. Each one
+matches the paper or is weaker than it, so it is a necessary condition for any geometry for which the
+argument closes.
+\begin{itemize}
+\item[(N)] $b,l_x,\ell\ge0$ and $l_x\ge\ell$. The paper requires $P_a\ge1$ (line 8344) and
+$l_x-d\ge3/16$ for $d\in[0,\ell]$ (line 8594).
+\item[(S)] $M+\ell\le1$. The paper fixes $M+\ell=1$ (line 6873).
+\item[(L)] Low estimate (Prop.~probe-low, lines 8564--8642). The bound
+$l_x/2+b/12+\max_{d\in[0,\ell]}(-d+\mathrm{loss}(d)/2)$ must not exceed
+$C(s_0)=l_x/2+s_0-1+h/6$. Taking $d=0$ and dropping $\mathrm{loss}(0)\ge0$ gives
+\[ s_0\ \ge\ \tfrac56+\tfrac{b}{12}+\tfrac{l_x-\ell}{6}. \]
+\item[(H)] High exponent (eq.~stage-high-exponent, line 6092). At row exponent $d=h$, which is the worst
+case on $[1/2,h]$ (line 16133), with frequency bin $\delta$ and $g=x\delta\ell$:
+\[ a-s_0+h(z_0-\tfrac16)-a\,l_y-\tfrac{\ell}{2}+x\delta\ell+h\bigl(R+\tfrac{\delta}{2}-z_0\bigr)\le0,
+\qquad a=\tfrac{1+\delta}{2}, \]
+for every $\delta\in[1/50,\kappa]$, $\kappa=2s_0-1$, and $x\in[0,1/2]$. Here
+$R=R^*(\delta,x,\ell/h)$ is the row-count exponent of Prop.~19.2 with the long-range cost of
+Lemma~17.6, an infimum over the cutoff $t$ of a maximum over the length $r$. We use (H) only at
+$x=1/2$. Lemma~\ref{lem:count} evaluates $R^*$ for that case, and it does not cover other $x$.
+\item[(F)] Floor bin $\delta_0=1/50$ with $R=1$ (eq.~floor-bound, line 15845): (H) with
+$\delta=1/50$, $x=1/2$, $R=1$.
+\end{itemize}
+In (H) and (F) the terms in $z_0$ cancel, so the bounds below do not depend on the choice
+$z_0=17/50$.
+
+\paragraph{Relaxation below $7/8$.} Several lemmas of OAI are stated for $\sigma_0\ge7/8$. We do not
+use any of their conclusions. We only use inequalities (L), (H), (F), each of which says that an
+exponent the argument must make negative is negative, together with the count of Prop.~19.2 at
+capacity $c=1/(6\max(3/4,\kappa))=2/9$, the largest capacity Lemma~plain allows. A hypothetical
+extension of the proof to $s_0<7/8$ needs at least these conditions, and granting it the
+unproved lemmas only enlarges its feasible set. So the infeasibility below is a valid limit for the
+architecture.
+
+\section{The count lemma}
+\begin{lemma}\label{lem:count}
+Let $2/3\le\kappa_0\le1$, $0<\delta<5\kappa_0/6$, $x=1/2$, $q=\delta/2$, $c=2/9$. For
+$t\in[1,3/2]$ and $r\in[t-1/2,t]$, $m=t-r$, put
+$f=e(r)-\delta r$ for $r\ge1$, with $e(r)=1$ for $r\le1/\kappa_0$ and $(1+5\kappa_0 r)/6$ otherwise, and
+$f=\min\bigl(1-\delta r-2q z_i,\ 1-2\delta m-2q z_p\bigr)$ for $r<1$, with $z_i=\min((1-r)/2,\sigma)$,
+$z_p=\min(c(1-2m),\sigma)$, $\sigma$ the supply cap. Then
+$R^*(\delta,\sigma)=\inf_t\sup_r f\ \ge\ R_\infty(\delta)$, where
+\[ R_\infty(\delta)=1-\frac{\delta(16+14t^*)}{37},\qquad
+t^*=\frac{5/6-16\delta/37}{5\kappa_0/6-23\delta/37}, \]
+if $1/\kappa_0\le t^*\le3/2$, and $R_\infty(\delta)=1-\delta$ otherwise.
+\end{lemma}
+\begin{proof}
+Lowering the caps raises $f$, so $R^*(\delta,\sigma)\ge R^*(\delta,\infty)$. Without caps,
+$z_i=(1-r)/2$ and $z_p=\frac29(1-2m)$. For $r<1$ the two entries of the minimum are
+$1-\delta/2-\delta r/2$, decreasing in $r$, and $1-2\delta/9-14\delta m/9$, increasing in $r$. They
+meet at $r=(28t-5)/37\in[t-1/2,1)$, so $\sup_{r<1}f=S(t)=1-\delta(16+14t)/37$, a decreasing function
+with $S(3/2)=1-\delta$. For $r\ge1$, $\sup f=\max\bigl(1-\delta,\,L(t)\bigr)$, where
+$L(t)=1/6+t(5\kappa_0/6-\delta)$ is increasing and present only for $t>1/\kappa_0$. Since
+$L(1/\kappa_0)=1-\delta/\kappa_0<S(1/\kappa_0)$, the infimum over $t$ of
+$\max(1-\delta,S,L)$ is $S(t^*)=L(t^*)$ when $t^*\le3/2$, and $1-\delta$ otherwise.
+\end{proof}
+At $\kappa_0=1$ this gives $R_\infty(19/50)=55889/82850$ and $R_\infty(2/5)=2129/3245$. The values
+agree with the reduced-model code to within its grid error ($6\cdot10^{-5}$).
+
+\section{The bound at $\kappa_0=1$}
+\begin{theorem}\label{thm:main}
+Let $\kappa_0=1$. Every geometry $(b,l_x,\ell)$ that satisfies (N), (S), (L) and (H) has
+\[ s_0\ \ge\ \frac{4638705}{5301659}=0.8749535\ldots. \]
+\end{theorem}
+\begin{proof}
+If $s_0<5/6$, (L) and (N) give $s_0\ge5/6$, a contradiction. Let $s_0\ge5/6$. Then
+$\kappa\ge2/3$, so $\delta=19/50$ and $\delta=2/5$ are admissible in (H). With
+Lemma~\ref{lem:count} and $R\ge R_\infty$, (H) becomes
+\begin{align*}
+(\mathrm H_1)\quad s_0&\ge \tfrac{172483}{124275}(1-l_x)+\tfrac{48208}{124275}\ell-\tfrac{69}{100}b,\\
+(\mathrm H_2)\quad s_0&\ge \tfrac{13526}{9735}(1-l_x)+\tfrac{3791}{9735}\ell-\tfrac{7}{10}b.
+\end{align*}
+Write each inequality as $c_b b+c_l l_x+c_e\ell+c_s s_0\le \rho$ and add them with the multipliers in
+Table~\ref{tab:mult}. The coefficients of $b$, $l_x$ and $\ell$ cancel exactly and the coefficient of $s_0$
+is $-1$, which gives the bound.
+\end{proof}
+\begin{table}[h]\centering\small\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrr}\toprule
+Inequality & multiplier $\lambda$ & $c_b$ & $c_l$ & $c_e$ & $c_s$ & $\rho$\\\midrule
+(L) & $4307228/5301659$ & $1/12$ & $1/6$ & $-1/6$ & $-1$ & $-5/6$\\
+(S) & $331477/5301659$ & $1$ & $2$ & $1$ & $0$ & $1$\\
+(H$_1$) & $1706710/15904977$ & $-69/100$ & $-172483/124275$ & $48208/124275$ & $-1$ & $-172483/124275$\\
+(H$_2$) & $116053/1445907$ & $-7/10$ & $-13526/9735$ & $3791/9735$ & $-1$ & $-13526/9735$\\\midrule
+$\sum\lambda\,\cdot$ & & $0$ & $0$ & $0$ & $-1$ & $-4638705/5301659$\\\bottomrule
+\end{tabular}
+\caption{Exact multipliers for Theorem~\ref{thm:main} (\texttt{symproofk.py} checks every entry).}
+\label{tab:mult}
+\end{table}
+
+The obstruction is a three-way balance. (L) rewards large $l_x$ and small $\ell$, (H) charges for
+small $1-l_x$ through the count $R$, and (S) ties the three lengths together. The floor, the
+intermediate range and the length condition $l_y-d-11b/6\ge1/12$ do not enter. The audit marked the
+last two as stronger than the paper needs, so it matters that the proof does not use them.
+
+\section{Conditional variants}
+Assume $\mathrm{MS}(\kappa)$ for every $\kappa\in[\kappa_0,1]$, with the uniformity over twists, symbol
+signs, rowwise profiles and heights required in OAI's (17.87). A single estimate at $\kappa_0$ is not
+enough. Then $e(r)=1$ for $1\le r\le1/\kappa_0$, and the copy argument of Lemma~17.6, run from
+$\mathrm{MS}(\kappa_0)$, gives $e(r)\le(1+5\kappa_0r)/6$ beyond. This changes only the long-range cost in
+Lemma~\ref{lem:count}. The same method gives the following exact bounds. Each certificate has four
+rows, chosen from (L), (S), (H) at $x=1/2$, (F) and $b\ge0$. Appendix~\ref{app:cert} lists their
+multipliers.
+\begin{table}[h]\centering
+\begin{tabular}{lllll}\toprule
+$\kappa_0$ & rows used & exact bound & decimal & numerical optimum\\\midrule
+$1$ & L, S, H($19/50$), H($2/5$) & $4638705/5301659$ & $0.8749535$ & $0.87497$\\
+$97/100$ & L, S, H($19/50$), H($2/5$) & $49696303/56869303$ & $0.8738687$ & $0.87386$\\
+$19/20$ & L, S, H($19/50$), H($9/25$) & $7753639/8880447$ & $0.8731136$ & $0.87312$\\
+$9/10$ & L, S, H($17/50$), $b\ge0$ & $336893/386718$ & $0.8711593$ & $0.87117$\\
+$4/5$ & L, S, F, $b\ge0$ & $167/192$ & $0.8697917$ & $0.8698$\\\bottomrule
+\end{tabular}
+\caption{Lower bounds under $\mathrm{MS}(\kappa)$ for all $\kappa\in[\kappa_0,1]$. The numerical optima are from the reduced model,
+without the intermediate convenience bound $76/75-2\delta/3$.}
+\end{table}
+
+\begin{theorem}
+For every $\kappa_0$, the inequalities (N), (S), (L) and (F) force $s_0\ge167/192=7/8-1/192$.
+\end{theorem}
+\begin{proof}
+(F) reads $s_0\ge\frac{203}{150}(1-l_x)+\frac{53}{150}\ell-\frac{51}{100}b$. Adding (L), (S), (F)
+and $-b\le0$ with multipliers $103/128$, $25/384$, $25/128$ and $25/768$ cancels $b$, $l_x$ and $\ell$
+and gives $s_0\ge167/192$. None of these rows involves the count, so the bound holds for any
+mean-square input.
+\end{proof}
+
+\begin{remark}
+No mean-square improvement can move this architecture below $7/8-1/192$. Going further would need a
+change in the floor bin $\delta_0=1/50$, which is tied to the Euler region $x_r\ge51/100$, in the
+low estimate, or in the relation $M+\ell=1$.
+\end{remark}
+
+\section{Robustness}
+\paragraph{The condition $M+\ell\le1$ is not needed.} OAI uses $M+\ell=1$ once, in the row-norm
+lemma (line 8246, ``Since $M'+\ell'-1=-3d$''). Put $\sigma=M+\ell-1$. Without the condition the
+available dual length satisfies $T_d\le H-3d+\sigma$. Retained dual dyads have
+$v+\ell_b\le y\le T_d$, so $\max(H,v+\ell_b)\le H+(\sigma-3d)_+$, and the row-norm exponent grows by at
+most $(\sigma-3d)_+$. The loss formula $M'+(1+3\ell'-2M')/4$ comes from the definition of $T_d$ and does
+not involve $\sigma$. After Cauchy--Schwarz, the low estimate at $d=0$ becomes
+\[ (\mathrm L_\sigma)\qquad s_0\ \ge\ \tfrac56+\tfrac{b}{12}+\tfrac{l_x-\ell}{6}+\tfrac12(b+2l_x+\ell-1)_+ . \]
+Replacing (S) by the linear branch of (L$_\sigma$) gives the same bounds. At $\kappa_0=1$ the
+multipliers of (L), (L$_\sigma$), (H$_1$), (H$_2$) are $3644274/5301659$, $662954/5301659$,
+$1706710/15904977$, $116053/1445907$, with bound $4638705/5301659$. For the floor bound they are
+$259/384$, $25/192$, $25/128$, $25/768$, with bound $167/192$. A geometry with $M+\ell>1$ would help only if the penalty
+slope $1/2$ fell below about $0.077$.
+
+\paragraph{The floor bin.} With a general floor bin $\delta_0=2a-1$, the rows (L), (S), (F) and
+$b\ge0$ give exactly
+\[ s_0\ \ge\ \frac23+\frac{1+2\delta_0}{5+6\delta_0}, \]
+which is $167/192$ at $\delta_0=1/50$ and tends to $13/15$. Lowering $a$ below $51/100$ costs nothing
+in the local correction (lines 4144--4170). The good-prime exponent $4-6x_r-6z_r$ is $-1.07$ at
+$x_r=0.505$, $z_r=17/50$, and the ramified exponents are at most $1-2x_r-\epsilon_0$. In the full
+system, though, the floor binds only when $\kappa_0\lesssim0.8$. Numerically, the lower bound at
+$\kappa_0=1$ and $0.9$ is unchanged for $\delta_0=0.01$ and $0.004$, and at $\kappa_0=0.8$,
+$\delta_0=0.004$ the count binds again at $0.86813$.
+
+\paragraph{A bilinear low estimate.} If the low bound $l_x/2+b/12$ improved to $l_x/2+b/12-\eta l_x$, the
+bound would fall steadily. About $\eta=0.07$, a saving of roughly $Z^{-0.03}$ over Cauchy--Schwarz,
+would reach $0.85$, and no other constraint binds before $\eta=0.2$. However, the low-separated sum
+$Q^{-1/2}\sum_m w_mA_mB_m$ equals the probe $I_\eta$ itself (eq.~low-separated, line 3470). An
+unconditional saving over Cauchy--Schwarz would itself be the stronger low estimate, so it cannot
+be supplied as a separate input. Measured cancellation at finite scales cannot establish the
+uniform saving either. It reflects the zeros present at those scales: without zeros off the line
+the ratio is about $Z^{C(1/2)-l_x/2-b/12}\approx Z^{-0.36}$. This does not rule out a new
+unconditional bilinear argument, but such an argument would amount to a new way of dividing the
+probe between the low and high ranges.
+
+\section{Other approaches tested}
+We also tested several modifications of the architecture. Each item below records the specific
+obstruction we met and says whether it is an exact argument or a numerical finding. These are
+limits of the approaches tested, not impossibility results for other methods.
+\begin{itemize}
+\item \emph{Mean-square input, floor bin, $M+\ell\le1$} (exact; Sections 4 and 5). Mean-square
+input alone stops at $167/192$. A smaller floor bin gains at most $1/320$, and only for
+$\kappa_0\lesssim0.8$. Relaxing $M+\ell\le1$ is paid back by the row norm.
+\item \emph{Cancellation across floor rows} (analytic). After Poisson summation, the common-contour
+version leads to an off-diagonal problem at row range $H\asymp D$, where the available generic
+estimates give no saving. This does not exclude estimates that use more arithmetic structure.
+\item \emph{Decomposition by top row dyads} (analytic). The filter to sixth-power-free rows
+costs $Z^{h/6}$, which is what the decomposition gains.
+\item \emph{Free ceiling on the Poisson frequencies, and savings in the floor-row count}
+(numerical, reduced model, not certified). Neither gains anything at $\kappa_0=1$
+($0.87498$ against $0.87497$), and the gain is below $0.002$ at $\kappa_0=0.8$.
+\item \emph{A cubic probe} (exact at the exponent level). The cubic pole at $z=1/3$ fits the
+signal budget, and the generic cubic Gram cost ($P_a^{1/3}$ in place of $P_a^{1/6}$) is small.
+However, the generic cubic large sieve controls the fourth moment of Lemma~plain only up to
+length $M/2$, short of the length $M$ the argument needs, with a deficit of $m/3$ coming from the
+cube copies. Moreover, assuming the uncentred threshold is $(1-1/k)M$, the comparison and
+centred branches of its induction need a comparison length
+$M/k\le L<(\frac12-\frac1k)M$. Such an $L$ exists only for $k>4$. A cubic probe therefore needs a
+different fourth-moment argument, not a transplant of the sextic one.
+\item \emph{A bilinear low estimate} (Section~5). The sum is the probe itself, so a saving would
+have to be an unconditional estimate, which amounts to a new way of dividing the probe.
+\end{itemize}
+Within the audited exponent model, none of the modifications tested moves the boundary
+materially. Going beyond this architecture appears to need a new signal mechanism or a
+different low-separation estimate.
+
+\paragraph{Reproducibility.} The script \texttt{symproofk.py} checks every statement in exact
+rational arithmetic. The script \texttt{certs\_cond.py} re-verifies all seven certificates. It writes
+them, with every row coefficient, to the machine-readable file \texttt{cond\_certificates.json}.
+The checker \texttt{certcheck.py}
+independently verifies the $\kappa_0=1$ result for $s_0\le437/500$ with a 1013-box certificate.
+
+\appendix
+\section{Exact multipliers of the remaining certificates}\label{app:cert}
+Each block lists the four rows, their multipliers, and for (H) the value $R_\infty(\delta)$ from
+Lemma~\ref{lem:count} at that $\kappa_0$. With $R=R_\infty$, the row coefficients follow from the
+formulas in Section~1. In every block the coefficients of $b$, $l_x$ and $\ell$ cancel exactly and that of
+$s_0$ is $-1$. Table~\ref{tab:mult} gives the case $\kappa_0=1$.
+{\small
+\begin{longtable}{llll}\toprule
+& row & multiplier $\lambda$ & $R_\infty(\delta)$\\\midrule
+% generated by certs_cond.py (tab_cond.tex)
+\multicolumn{4}{l}{$\kappa_0=97/100$: $s_0\ge49696303/56869303$}\\
+& (L) & $46109803/56869303$ & \\
+& (S) & $3586500/56869303$ & \\
+& (H) $\delta=19/50$ & $30799925/170607909$ & $211961/317525$\\
+& (H) $\delta=2/5$ & $1478575/170607909$ & $1151/1775$\\
+\addlinespace
+\multicolumn{4}{l}{$\kappa_0=19/20$: $s_0\ge7753639/8880447$}\\
+& (L) & $2396745/2960149$ & \\
+& (S) & $563404/8880447$ & \\
+& (H) $\delta=19/50$ & $1324609/8880447$ & $10749/16225$\\
+& (H) $\delta=9/25$ & $365603/8880447$ & $30697/45025$\\
+\addlinespace
+\multicolumn{4}{l}{$\kappa_0=9/10$: $s_0\ge336893/386718$}\\
+& (L) & $207987/257812$ & \\
+& (S) & $49825/773436$ & \\
+& (H) $\delta=17/50$ & $49825/257812$ & $102997/149475$\\
+& $b\ge0$ & $3347/1546872$ & \\
+\addlinespace
+\multicolumn{4}{l}{$\kappa_0=4/5$: $s_0\ge167/192$}\\
+& (L) & $103/128$ & \\
+& (S) & $25/384$ & \\
+& (F) & $25/128$ & \\
+& $b\ge0$ & $25/768$ & \\
+\addlinespace
+\multicolumn{4}{l}{$\kappa_0=1$, without (S): $s_0\ge4638705/5301659$}\\
+& (L) & $3644274/5301659$ & \\
+& (L$_\sigma$) & $662954/5301659$ & \\
+& (H) $\delta=19/50$ & $1706710/15904977$ & $55889/82850$\\
+& (H) $\delta=2/5$ & $116053/1445907$ & $2129/3245$\\
+\addlinespace
+\multicolumn{4}{l}{$\kappa_0=4/5$, without (S): $s_0\ge167/192$}\\
+& (L) & $259/384$ & \\
+& (L$_\sigma$) & $25/192$ & \\
+& (F) & $25/128$ & \\
+& $b\ge0$ & $25/768$ & \\
+\bottomrule
+\end{longtable}}
+\end{document}
