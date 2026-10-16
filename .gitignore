@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+family-numerics/runs/
+*.npz
+*.aux
+*.log
+!proof-7-8/exploration/logs/*.log
+*.out
+*.synctex.gz
