@@ -19,7 +19,7 @@ that proof, no choice of geometry gets below **0.8749535**, so the published 7/8
 | Conditional limits | Under MS(κ) for all κ ∈ [κ₀, 1]: 0.87387, 0.87311, 0.87116 for κ₀ = 0.97, 0.95, 0.9 | Exact proofs |
 | Mean-square floor | s₀ ≥ 167/192 = 7/8 − 1/192 for every κ₀ | Exact proof; independent of the count |
 | Robustness | Dropping M + ℓ ≤ 1 leaves both bounds unchanged; a smaller floor bin gains at most 1/320 | Exact proofs |
-| Cubic probe | The fourth-moment induction closes only for character order k > 4 | Exponent-level argument |
+| Cubic probe | The fourth-moment induction can't close for character order k = 3, even if its comparison length adapts to each product length; orders 4 and 5 are blocked instead by unknown theta coefficients | Exponent-level argument |
 | Sextic family numerics | The mean square matches square-root cancellation for row ranges H < D, up to D = 320,000 | Numerical |
 
 ## Status of the underlying results
