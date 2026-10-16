@@ -2,8 +2,8 @@
 
 Lab notebook of the 7/8 analysis, kept in the order the work was done. It supports the closing
 paragraph of `../papers/qrh_family_note.pdf` and the note `../papers/proof78.pdf`. The proof scripts are in this
-folder; the models, optimisers and light tests it mentions are in `exploration/`, with their logs in
-`exploration/logs/`.
+folder; the models, optimisers and light tests it mentions are in `exploration/`. The run logs named
+below are not published: every number from them is in the tables here, and rerunning a script recreates its log.
 It is a reduced model of Part II of the OpenAI quasi-RH paper. None of the optima is certified
 global. Typical margins are about 1e-6.
 
@@ -42,7 +42,7 @@ hold there with margins of at least 1.4e-4 on a 200 x 41 grid.
   Euler region (x_r >= 7/8), the principal residue contour (sigma_0 in [7/8, 1)) and
   epsilon_0 = 3/8.
 
-The logs are `*.log`, named by model, kappa_0 and variant.
+The run logs (not published) are named by model, kappa_0 and variant.
 
 ## Signal sensitivity (`gamma78.py`, logs `gam_<variant>_<gamma>.log`, kappa_0 = 1)
 The signal h/6 in C(sigma0) is replaced by gamma*h. Variant `all` changes C everywhere it is
@@ -86,6 +86,20 @@ L + z < (theta - 1/2) M = (1/2 - 1/k) M. Centered branch: deficit A - theta M - 
 (s = 2/3 for k = 6). Overlap needs 1/k < 1/2 - 1/k, so k > 4. k = 6: [M/4, M/3), the paper's
 L = M/4. k = 3: L >= M/3 against L < M/6, disjoint for every s. The cubic transplant of
 Lemma `plain` cannot close; it needs a different fourth-moment argument.
+
+Correction (later the same day; `exploration/order_k_ledger.py`, exact scan over A and z): the
+k > 4 condition assumes one comparison length L for every product length A, as in the paper.
+If L may depend on A, the conditions are L >= (A - theta M)/min(s, 1) and
+L < min((A - (1 - theta) M)/2 - z, (A - (k kappa + 1) z)/2). At A = M this needs min(s, 1) > 2/(k - 1):
+| k | fixed L | adaptive L |
+|---|---|---|
+| 3 | fails (any s <= 1) | fails (any s <= 1) |
+| 4 | fails | needs s > 2/3 (s = 2/3 is borderline) |
+| 5 | needs s about 0.8 or more | closes at s = 2/3 (margin +0.10) |
+| 6 | closes | closes |
+The cubic conclusion stands. Orders 4 and 5 are blocked instead by the explicit theta coefficients
+the reflection identity needs; those are known only for orders 2 and 3, which make up 6 = 2*3.
+This is exponent-level only, and the other uses of L in the proof were not checked for an A-dependent choice.
 
 ## Direct cubic large sieve on Lemma `plain` (by hand)
 Rows k with q_k <= Q = Z^m, normalized product of length N = Z^A, target Z^M, M = m + q.
